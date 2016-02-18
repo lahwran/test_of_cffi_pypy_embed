@@ -33,7 +33,7 @@ with open(pypath('plugin.c')) as f:
 with open(pypath('onload.py')) as f:
     ffi.embedding_init_code(f.read())
 
-ffi.compile(target="plugin-1.5.*", verbose=True)
+ffi.compile(target="libmy_plugin.*", verbose=True)
 shutil.copy(pypath("plugin.h"), include('plugin.h'))
-libfile = DerpOOPath(glob.glob(pypath("plugin-1.5.*"))[0])
+libfile = DerpOOPath(glob.glob(pypath("libmy_plugin.*"))[0])
 shutil.copy(libfile, libpath(libfile.basename()))
